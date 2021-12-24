@@ -27,11 +27,15 @@ function TaskView({ task }: TaskViewProps) {
         setEditedTitle(e.currentTarget.value);
     };
 
+    const handleOnBlur = (e: React.FormEvent<HTMLInputElement>) => {
+        setIsEditing(false);
+    };
+
     let titleView;
     if (isEditing) {
         titleView = (
             <form onSubmit={handleFormSubmit}>
-                <input autoFocus defaultValue={task.title} onInput={handleTitleInput} />
+                <input autoFocus defaultValue={task.title} onInput={handleTitleInput} onBlur={handleOnBlur}/>
             </form>
         );
     } else {
