@@ -1,0 +1,24 @@
+.task-actions {
+    display: flex;
+}
+
+.task-actions button {
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    border: solid 1px darkgray;
+    background-color: #e2e2e2;
+}
+
+.task-actions > button + * {
+    margin-left: 5px;
+}
+
+.task-actions svg {
+    transform: scale(0.65);
+}
+
+.task-actions button.completed {
+    background-color: #549c4f;
+    border-color: white;
+    color: white;
+}

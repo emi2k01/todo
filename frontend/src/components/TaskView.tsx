@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { editTaskTitle } from '../actions';
 import { Task } from '../models'
 import TaskActions from './TaskActions';
+import "./TaskView.css";
 
 export interface TaskViewProps {
     task: Task,
@@ -18,7 +19,7 @@ function TaskView({ task }: TaskViewProps) {
     };
 
     const handleFormSubmit = (_e: React.FormEvent<HTMLFormElement>) => {
-        dispatch(editTaskTitle(task.id, editedTitle));
+        dispatch(editTaskTitle(task._id, editedTitle));
         setIsEditing(false);
     };
 
@@ -34,14 +35,14 @@ function TaskView({ task }: TaskViewProps) {
             </form>
         );
     } else {
-        titleView = <div>{task.title}</div>;
+        titleView = <div className={task.completed ? "completed" : "uncompleted"}>{task.title}</div>;
     }
 
     return (
-        <>
+        <div className="task-view">
             {titleView}
             <TaskActions task={task} onTaskEdit={handleTaskEdit}/>
-        </>
+        </div>
     );
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTask } from "../actions";
+import "./NewTask.css"
 
 function NewTask() {
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function NewTask() {
     }
 
     return (
-        <form onSubmit={submitTask}>
+        <form className="new-task" onSubmit={submitTask}>
             <input placeholder="What's your next task?" onInput={onTaskInput}/>
         </form>
     );

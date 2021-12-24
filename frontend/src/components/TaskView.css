@@ -1,0 +1,13 @@
+.task-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+
+    border-bottom: solid 2px lightgray;
+}
+
+.task-view div.completed {
+    text-decoration: line-through;
+}

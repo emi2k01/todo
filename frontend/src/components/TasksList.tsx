@@ -1,6 +1,9 @@
-import { connect } from "react-redux";
+import { useEffect } from "react";
+import { connect, useDispatch } from "react-redux";
+import { fetchTasks } from "../actions";
 import { Task } from "../models";
 import TaskView from "./TaskView";
+import "./TaskList.css"
 
 const mapStateToProps = (state: Task[]) => ({
     tasks: state,
@@ -12,15 +15,18 @@ export interface TasksListProps {
 
 function TasksList(props: TasksListProps) {
     let { tasks } = props;
+    const dispatch = useDispatch(); 
+
+    useEffect(() => {
+        dispatch(fetchTasks());
+    }, []);
 
     return (
-        <div>
-            <ul>
-                {tasks.map((task) => (
-                    <li key={task.id}><TaskView task={task} /></li>
-                ))}
-            </ul>
-        </div>
+        <ul className="tasks-list">
+            {tasks.map((task) => (
+                <li key={task._id}><TaskView task={task} /></li>
+            ))}
+        </ul>
     );
 }
 

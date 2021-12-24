@@ -1,0 +1,11 @@
+.new-task {
+    width: 100%;
+}
+
+.new-task input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: solid 1px darkgray;
+    font-size: 18px;
+}
