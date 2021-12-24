@@ -31,7 +31,7 @@ function TaskView({ task }: TaskViewProps) {
     if (isEditing) {
         titleView = (
             <form onSubmit={handleFormSubmit}>
-                <input defaultValue={task.title} onInput={handleTitleInput} />
+                <input autoFocus defaultValue={task.title} onInput={handleTitleInput} />
             </form>
         );
     } else {
